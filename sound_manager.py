@@ -7,6 +7,7 @@ SOUND_PIN = 25
 SOUNDS = [
     'hatched:d=8,o=5,b=63:16b,16d6,b,16b,16d6,b,16b,16d6,4f6',
     'alert:d=8,o=6,b=140:d,4f,d,d',
+    'success:d=4,o=5,b=63:32c,32e,32g,8b',
     'select:d=8,o=6,b=140:16g',
     'enter:d=8,o=6,b=140:16g5'
 ]
@@ -37,4 +38,5 @@ def play_sound(snd):
     
     
   
+
 
