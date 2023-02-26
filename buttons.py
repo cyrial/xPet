@@ -1,44 +1,1 @@
-from machine import Pin
-from sound_manager import play_sound
-from stats_screen import select_from_menu, reset_highlight, CURRENT_STAT
-import utime
-import gc
-import sys
-
-SELECT_PIN = 21
-ENTER_PIN = 18
-EXIT_PIN = 19
-  
-def button_select():
-  while True:
-    if not select_handler.value():
-      play_sound('select')
-      select_from_menu()
-      
-    utime.sleep(0.1)
-    
-def button_enter():
-  while True:
-    if not enter_handler.value():
-      play_sound('enter')
-    
-  utime.sleep(0.1)
-  
-def button_exit():
-  while True:
-    if not exit_handler.value():
-      reset_highlight(1)
-      play_sound('enter')
-    
-select_handler = Pin(SELECT_PIN, Pin.IN, Pin.PULL_UP)
-enter_handler = Pin(ENTER_PIN, Pin.IN, Pin.PULL_UP)
-exit_handler = Pin(EXIT_PIN, Pin.IN, Pin.PULL_UP)
-
-
-
-
-
-
-
-
-
+from machine import Pinfrom sound_manager import play_soundimport stats_screenimport utimeimport gcimport sysimport _threadimport objectsSELECT_PIN = 21ENTER_PIN = 18EXIT_PIN = 19    def check_button():    while True:        # SELECT        if not select_handler.value():            play_sound('select')            stats_screen.select_from_menu()            _thread.start_new_thread("BUTTON", check_button, ())            return              # ENTER        if not enter_handler.value():            play_sound('enter')                # CLEANING POO IF NOTHING IS SELECTED            if stats_screen.CURRENT_STAT == -1:                if objects.POO:                    objects.clean_poo()                else:                    # ADD ACTIONS CASE CURRENT_STAT == X                    stats_screen.reset_highlight(1)                        _thread.start_new_thread("BUTTON", check_button, ())            return                    # EXIT        if not exit_handler.value():            stats_screen.reset_highlight(1)            play_sound('enter')            _thread.start_new_thread("BUTTON", check_button, ())            return                utime.sleep(0.1)    select_handler = Pin(SELECT_PIN, Pin.IN, Pin.PULL_UP)enter_handler = Pin(ENTER_PIN, Pin.IN, Pin.PULL_UP)exit_handler = Pin(EXIT_PIN, Pin.IN, Pin.PULL_UP)
