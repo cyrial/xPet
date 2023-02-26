@@ -13,11 +13,10 @@ def generate_poo():
   global POO
   
   # Generate POO only when character is on the left side of the screen
-  if animations.CH_X < config.MAX_WIDTH - POO_WIDTH:    
+  if animations.CH_X < config.MAX_WIDTH - POO_WIDTH:
     POO = 1
     config.MAX_WIDTH -= POO_WIDTH
-    draw_poo(1)
-    # Everything will freeze if we won't start it in the thread
+    draw_poo(animations.POO_ANIM_STEP)
     play_sound_thread("poo")
     
   else:
@@ -25,13 +24,12 @@ def generate_poo():
     
 def clean_poo():
     global POO
-  
+    
     POO = 0
     config.MAX_WIDTH += POO_WIDTH
     
     tft.rect(config.SCREEN_WIDTH - POO_WIDTH, config.GROUND - POO_HEIGHT, POO_WIDTH, POO_HEIGHT, tft.WHITE, tft.WHITE)
     play_sound_thread("success")
-    
     timers.check_timer("TIMER_POOP", timers.timer_poop)
 
   

@@ -36,6 +36,6 @@ def timer_poop():
     
 # IF CHARACTER IS HOVERING POOP, MAKE CHECKS EVERY 3s
 def timer_poop_recheck():
-
-    wait(3,3)
+    
+    wait(3 * config.GAME_SPEED,3 * config.GAME_SPEED)
     objects.generate_poo()
