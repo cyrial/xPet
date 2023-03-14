@@ -23,9 +23,43 @@ def check_timer(thread_name, function):
         
 def timer_food():
     
-    # FOOD - 1 every 20-30min
     wait(1200,1800)
     decrease_stat("food")
+    
+def timer_drink():
+    
+    wait(1000,1500)
+    decrease_stat("drink")
+
+def timer_sweets():
+    
+    wait(3000,5000)
+    decrease_stat("sweets")
+
+def timer_learn():
+    
+    wait(5000,7000)
+    decrease_stat("book")
+   
+def timer_fun():
+    
+    wait(1500,2000)
+    decrease_stat("fun")
+      
+def timer_shower():
+    
+    wait(5000,7000)
+    decrease_stat("wash")
+        
+def timer_sleep():
+    
+    wait(7200,10800)
+    decrease_stat("sleep")
+        
+def timer_poop_demand(time):
+    
+    wait(time,time)
+    objects.generate_poo()
     
 def timer_poop():
 
@@ -33,6 +67,12 @@ def timer_poop():
     wait(3600,7200)
     objects.generate_poo()
     decrease_stat("food")
+  
+def timer_decrease_stat(stat, time):
+    
+    wait(time,time)
+    decrease_stat(stat)
+    # TODO add sound!!! maybe 
     
 # IF CHARACTER IS HOVERING POOP, MAKE CHECKS EVERY 3s
 def timer_poop_recheck():

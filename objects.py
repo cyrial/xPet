@@ -50,7 +50,7 @@ def clean_poo():
 def draw_food(step):
     tft.image(animations.ACTION_X + character.SIZE[0] + 5, animations.CH_Y + int(character.SIZE[1] / 2) - int(FOOD_SIZE[1] / 2), "images/food/" + str(step) + ".jpg")
 
-def draw_food(step):
+def draw_cake(step):
     tft.image(animations.ACTION_X + character.SIZE[0] + 5, animations.CH_Y + int(character.SIZE[1] / 2) - int(CAKE_SIZE[1] / 2), "images/cake/" + str(step) + ".jpg")
     
 def draw_drink(step):
